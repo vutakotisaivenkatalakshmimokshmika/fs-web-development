@@ -21,7 +21,7 @@ Each week has `Record_WeekXX.pdf`, `screenshots/` and `src/`. Observation PDFs w
 | Assignment | Description |
 |---|---|
 | [Assignment 01](03-assignments/assignment-01-static-page-and-css) | Static HTML web page and the three types of CSS |
-| [Assignment 02](03-assignments/assignment-02-restful-api-service) | **Library Lending API**: Express + MongoDB REST service with books, members, loans, fines, validation, pagination and end-to-end API tests |
+| [Assignment 02](03-assignments/assignment-02) | **PetPal**: html+css+js+ database in json |
 
 ## 03 · Assessments
 IA-1 and IA-2 will be added after each exam.
@@ -34,3 +34,5 @@ IA-1 and IA-2 will be added after each exam.
 
 ## Tech
 HTML5, CSS3, JavaScript (ES6+), Node.js, Express.js, MongoDB / Mongoose, React 18, Vite, Git
+
+## both individual and group projects are with the same concept but different tech stack as mentioned for the assignment-2 and group project
