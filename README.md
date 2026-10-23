@@ -5,7 +5,7 @@ Lab records, topic-wise practice, assignments and assessments for the **Full Sta
 **V. Mokshmika** · A24126552187
 
 ## 01 · Observation and Record
-Each week has `Record_WeekXX.pdf`, `screenshots/` and `src/`. Observation PDFs will be added. Full record: [Lab_Record_Complete_A24126552186.pdf](01-observation-and-record/Lab_Record_Complete_A24126552186.pdf).
+Each week has `Record_WeekXX.pdf`, `screenshots/` and `src/`. Observation PDFs will be added. Full record: [Lab_Record_Complete_A24126552187.pdf](01-observation-and-record/Lab_Record_Complete_A24126552187.pdf).
 
 | Week | Experiment | Stack |
 |---|---|---|
