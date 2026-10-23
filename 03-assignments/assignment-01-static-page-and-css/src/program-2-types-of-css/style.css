@@ -1,0 +1,9 @@
+/* External CSS file: style.css */
+h2 {
+  font-family: Arial, sans-serif;
+}
+.external-box {
+  border: 2px solid black;
+  padding: 10px;
+  width: 300px;
+}

@@ -1,0 +1,32 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+    function getRole() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role;
+    }
+
+    match /users/{userId} {
+      allow read: if isSignedIn();
+      allow create: if isSignedIn() && request.auth.uid == userId;
+      allow update: if isSignedIn() && request.auth.uid == userId;
+      allow delete: if false;
+    }
+
+    match /achievements/{achievementId} {
+      allow create: if isSignedIn()
+        && request.resource.data.submittedBy == request.auth.uid
+        && request.resource.data.status == 'pending';
+
+      allow read: if isSignedIn()
+        && (resource.data.submittedBy == request.auth.uid || getRole() == 'admin');
+
+      allow update: if isSignedIn() && getRole() == 'admin';
+
+      allow delete: if isSignedIn() && getRole() == 'admin';
+    }
+  }
+}

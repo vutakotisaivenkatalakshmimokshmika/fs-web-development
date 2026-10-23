@@ -1,0 +1,8 @@
+{
+  "name": "express-app",
+  "version": "1.0.0",
+  "description": "Movie Management SPA using Express, MongoDB and RESTful APIs",
+  "main": "index.js",
+  "scripts": { "start": "node index.js" },
+  "dependencies": { "ejs": "^3.1.10", "express": "^4.19.2", "mongoose": "^7.6.3" }
+}

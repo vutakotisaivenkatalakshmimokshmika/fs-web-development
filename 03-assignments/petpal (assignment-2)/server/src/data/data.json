@@ -1,0 +1,188 @@
+{
+  "users": [
+    {
+      "_id": "7275d2f602072e1361519e60",
+      "name": "Harsh",
+      "email": "dadiharishkumar.24.csm@anits.edu.in",
+      "passwordHash": "$2a$12$.Cz.QrPHf0VRVxgs3h/sReB8dOpU59z5BuaOooCHVjqGjDTsDiVS2",
+      "coins": 2,
+      "createdAt": "2026-10-23T12:23:38.059Z",
+      "updatedAt": "2026-10-23T12:24:58.406Z"
+    }
+  ],
+  "pets": [
+    {
+      "_id": "bb2cdf0d9862446f8efdd484",
+      "user": "7275d2f602072e1361519e60",
+      "species": "cat",
+      "name": "Mochi",
+      "happiness": 100,
+      "energy": 100,
+      "xp": 15,
+      "level": 1,
+      "inventory": [],
+      "equippedItem": null,
+      "createdAt": "2026-10-23T12:23:38.065Z",
+      "updatedAt": "2026-10-23T12:24:58.407Z"
+    }
+  ],
+  "habits": [
+    {
+      "_id": "70d0dc88c1ccec8f6b927cbf",
+      "user": "7275d2f602072e1361519e60",
+      "title": "Study for 30 minutes",
+      "description": "",
+      "category": "Study",
+      "targetMinutes": 30,
+      "archived": false,
+      "createdAt": "2026-10-23T12:23:38.067Z",
+      "updatedAt": "2026-10-23T12:23:38.067Z"
+    },
+    {
+      "_id": "d79fae3d9a0aefe808cf90ea",
+      "user": "7275d2f602072e1361519e60",
+      "title": "Take a water break",
+      "description": "",
+      "category": "Health",
+      "targetMinutes": 0,
+      "archived": false,
+      "createdAt": "2026-10-23T12:23:38.069Z",
+      "updatedAt": "2026-10-23T12:23:38.069Z"
+    },
+    {
+      "_id": "3166e2e6df6788dcd66d3cba",
+      "user": "7275d2f602072e1361519e60",
+      "title": "Plan tomorrow",
+      "description": "",
+      "category": "Productivity",
+      "targetMinutes": 0,
+      "archived": false,
+      "createdAt": "2026-10-23T12:23:38.071Z",
+      "updatedAt": "2026-10-23T12:23:38.071Z"
+    }
+  ],
+  "habitCompletions": [
+    {
+      "_id": "cfefc41fa2c7e6270187ec18",
+      "user": "7275d2f602072e1361519e60",
+      "habit": "70d0dc88c1ccec8f6b927cbf",
+      "dayKey": "2026-10-23",
+      "rewardCoins": 10,
+      "rewardXp": 5,
+      "createdAt": "2026-10-23T12:24:22.123Z",
+      "updatedAt": "2026-10-23T12:24:22.123Z"
+    },
+    {
+      "_id": "0ea2fdec5490276848c1f434",
+      "user": "7275d2f602072e1361519e60",
+      "habit": "d79fae3d9a0aefe808cf90ea",
+      "dayKey": "2026-10-23",
+      "rewardCoins": 10,
+      "rewardXp": 5,
+      "createdAt": "2026-10-23T12:24:23.419Z",
+      "updatedAt": "2026-10-23T12:24:23.419Z"
+    },
+    {
+      "_id": "23019b1b3d46ac7036c7317a",
+      "user": "7275d2f602072e1361519e60",
+      "habit": "3166e2e6df6788dcd66d3cba",
+      "dayKey": "2026-10-23",
+      "rewardCoins": 10,
+      "rewardXp": 5,
+      "createdAt": "2026-10-23T12:24:24.717Z",
+      "updatedAt": "2026-10-23T12:24:24.717Z"
+    }
+  ],
+  "shopItems": [
+    {
+      "_id": "a77dd77954af4d36d5788166",
+      "name": "Berry Snack",
+      "description": "A sweet little treat for your pet.",
+      "category": "food",
+      "price": 5,
+      "emoji": "🍓",
+      "createdAt": "2026-10-23T12:12:55.274Z",
+      "updatedAt": "2026-10-23T12:12:55.274Z"
+    },
+    {
+      "_id": "c4d7659aaaa8f55c3d54dab0",
+      "name": "Crunchy Biscuit",
+      "description": "A tasty snack after a productive day.",
+      "category": "food",
+      "price": 8,
+      "emoji": "🍪",
+      "createdAt": "2026-10-23T12:12:55.274Z",
+      "updatedAt": "2026-10-23T12:12:55.274Z"
+    },
+    {
+      "_id": "8127875d9bfdf39a2fefb4d1",
+      "name": "Yarn Ball",
+      "description": "A playful toy for happy moments.",
+      "category": "toy",
+      "price": 20,
+      "emoji": "🧶",
+      "createdAt": "2026-10-23T12:12:55.274Z",
+      "updatedAt": "2026-10-23T12:12:55.274Z"
+    },
+    {
+      "_id": "66f24b771336b477500b0c94",
+      "name": "Tiny Bell",
+      "description": "A little jingle for your companion.",
+      "category": "accessory",
+      "price": 35,
+      "emoji": "🔔",
+      "createdAt": "2026-10-23T12:12:55.274Z",
+      "updatedAt": "2026-10-23T12:12:55.274Z"
+    },
+    {
+      "_id": "dbbdd3b065568de593d45eab",
+      "name": "Flower Crown",
+      "description": "A soft floral accessory.",
+      "category": "accessory",
+      "price": 50,
+      "emoji": "🌼",
+      "createdAt": "2026-10-23T12:12:55.274Z",
+      "updatedAt": "2026-10-23T12:12:55.274Z"
+    },
+    {
+      "_id": "287dfe278cf41ead8517f2cb",
+      "name": "Star Pillow",
+      "description": "A cozy place to rest.",
+      "category": "toy",
+      "price": 25,
+      "emoji": "⭐",
+      "createdAt": "2026-10-23T12:12:55.274Z",
+      "updatedAt": "2026-10-23T12:12:55.274Z"
+    },
+    {
+      "_id": "5b8d00dbd9803c4fc5b4291f",
+      "name": "Magic Hat",
+      "description": "A tiny hat with big personality.",
+      "category": "accessory",
+      "price": 65,
+      "emoji": "🎩",
+      "createdAt": "2026-10-23T12:12:55.274Z",
+      "updatedAt": "2026-10-23T12:12:55.274Z"
+    }
+  ],
+  "rewardTransactions": [
+    {
+      "_id": "b0046f4fb7fdbd413591ae6f",
+      "user": "7275d2f602072e1361519e60",
+      "item": "a77dd77954af4d36d5788166",
+      "type": "purchase",
+      "coins": -5,
+      "createdAt": "2026-10-23T12:24:56.234Z",
+      "updatedAt": "2026-10-23T12:24:56.234Z"
+    },
+    {
+      "_id": "4a36195a65c20eea22298fdd",
+      "user": "7275d2f602072e1361519e60",
+      "item": "c4d7659aaaa8f55c3d54dab0",
+      "type": "purchase",
+      "coins": -8,
+      "createdAt": "2026-10-23T12:24:58.409Z",
+      "updatedAt": "2026-10-23T12:24:58.409Z"
+    }
+  ]
+}

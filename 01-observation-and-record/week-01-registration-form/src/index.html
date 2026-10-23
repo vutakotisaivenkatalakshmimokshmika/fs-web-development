@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Form</title>
+</head>
+<body>
+  <h2>Registration Form</h2>
+  <form>
+    <table border="1">
+      <tr>
+        <td><label for="name">Name:</label></td>
+        <td><input type="text" id="name" name="name"></td>
+      </tr>
+      <tr>
+        <td><label for="password">Password:</label></td>
+        <td><input type="password" id="password" name="password"></td>
+      </tr>
+      <tr>
+        <td><label for="email">E-mail:</label></td>
+        <td><input type="email" id="email" name="email"></td>
+      </tr>
+      <tr>
+        <td><label for="phone">Phone Number:</label></td>
+        <td><input type="tel" id="phone" name="phone"></td>
+      </tr>
+      <tr>
+        <td><label>Sex:</label></td>
+        <td>
+          <input type="radio" id="male" name="sex">
+          <label for="male">Male</label>
+          <input type="radio" id="female" name="sex">
+          <label for="female">Female</label>
+        </td>
+      </tr>
+      <tr>
+        <td><label>Date of Birth</label></td>
+        <td>
+          <select name="day" id="day">
+            <option value="">Day</option>
+            <option value="">01</option>
+          </select>
+          <select name="month" id="month">
+            <option value="">Month</option>
+            <option value="">01</option>
+          </select>
+          <select name="year" id="year">
+            <option value="">Year</option>
+            <option value="">2000</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td><label>Languages Known:</label></td>
+        <td>
+          <input type="checkbox" id="english" name="english">
+          <label for="english">English<br></label>
+          <input type="checkbox" id="telugu" name="telugu">
+          <label for="telugu">Telugu<br></label>
+          <input type="checkbox" id="hindi" name="hindi">
+          <label for="hindi">Hindi<br></label>
+          <input type="checkbox" id="tamil" name="tamil">
+          <label for="tamil">Tamil</label>
+        </td>
+      </tr>
+      <tr>
+        <td><label for="address">Address:</label></td>
+        <td><textarea id="address" name="address" rows="4" cols="20"></textarea></td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <button type="submit" value="Submit">Submit</button>
+          <button type="reset" value="Reset">Reset</button>
+        </td>
+      </tr>
+    </table>
+  </form>
+</body>
+</html>

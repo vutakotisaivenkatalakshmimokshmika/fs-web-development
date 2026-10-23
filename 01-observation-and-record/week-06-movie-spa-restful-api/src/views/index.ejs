@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie Management System</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <h1>Movie Management System</h1>
+
+  <div id="home" class="page">
+    <button onclick="showPage('addPage')">Add Movie</button>
+    <button onclick="showPage('updatePage')">Update Rating</button>
+    <button onclick="showPage('deletePage')">Delete Movie</button>
+    <button onclick="viewMovies()">View Movies</button>
+  </div>
+
+  <div id="addPage" class="page" style="display:none">
+    <h2>Add Movie</h2>
+    <input id="title" placeholder="Title">
+    <input id="director" placeholder="Director">
+    <input id="year" type="number" placeholder="Year">
+    <input id="rating" type="number" step="0.1" placeholder="Rating">
+    <button onclick="addMovie()">Add</button>
+    <button onclick="goHome()">Back</button>
+  </div>
+
+  <div id="updatePage" class="page" style="display:none">
+    <h2>Update Rating</h2>
+    <input id="updateTitle" placeholder="Title">
+    <input id="newRating" type="number" step="0.1" placeholder="New rating">
+    <button onclick="updateMovie()">Update</button>
+    <button onclick="goHome()">Back</button>
+  </div>
+
+  <div id="deletePage" class="page" style="display:none">
+    <h2>Delete Movie</h2>
+    <input id="deleteTitle" placeholder="Title">
+    <button onclick="deleteMovie()">Delete</button>
+    <button onclick="goHome()">Back</button>
+  </div>
+
+  <div id="viewPage" class="page" style="display:none">
+    <h2>All Movies</h2>
+    <div id="movieTable"></div>
+    <button onclick="goHome()">Back</button>
+  </div>
+
+  <div id="output"></div>
+  <script src="/script.js"></script>
+</body>
+</html>

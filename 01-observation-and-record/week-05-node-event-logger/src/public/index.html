@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Node.js Event Logger</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div class="page-header">
+    <h1>Node.js Event Logger</h1>
+    <p class="subtitle">Monitor live event activity powered by your Node.js implementation</p>
+  </div>
+  <div class="main">
+    <div class="stat-grid">
+      <div class="stat-card"><div class="stat-label">Status</div><div class="stat-value" id="stat-status"><span class="badge idle">Idle</span></div></div>
+      <div class="stat-card"><div class="stat-label">Ticks Fired</div><div class="stat-value big" id="stat-ticks">0 <span class="of">/ 5</span></div></div>
+      <div class="stat-card"><div class="stat-label">Last Event Time</div><div class="stat-value mono" id="stat-time">—</div></div>
+      <div class="stat-card"><div class="stat-label">Log File Size</div><div class="stat-value mono" id="stat-size">0 bytes</div></div>
+    </div>
+    <div class="card"><div class="card-title">Last Generated UUID</div><div class="uuid-display" id="stat-uuid">—</div></div>
+    <div class="card">
+      <div class="card-title">Event Log</div>
+      <div class="empty-state" id="empty-state"><span class="empty-icon">◯</span><p>No events yet. Click Start to begin.</p></div>
+      <div class="log-feed" id="log-feed"></div>
+    </div>
+    <div class="btn-row">
+      <button id="start-btn" onclick="handleStart()">Start</button>
+      <button id="reset-btn" class="btn-secondary" onclick="handleReset()">Reset</button>
+    </div>
+  </div>
+  <script>
+    let pollInterval = null;
+    let lastCount = 0;
+    function setStatus(type, label) {
+      document.getElementById("stat-status").innerHTML = '<span class="badge ' + type + '">' + label + '</span>';
+    }
+    window.handleStart = async function () {
+      document.getElementById("start-btn").disabled = true;
+      document.getElementById("reset-btn").disabled = true;
+      setStatus("running", "Running");
+      try {
+        const res = await fetch("/start", { method: "POST" });
+        const data = await res.json();
+        if (data.status === "error") {
+          setStatus("error", "Error");
+          document.getElementById("stat-uuid").textContent = data.message;
+          document.getElementById("start-btn").disabled = false;
+          document.getElementById("reset-btn").disabled = false;
+          return;
+        }
+        document.getElementById("empty-state").style.display = "none";
+        lastCount = 0;
+        pollInterval = setInterval(pollLogs, 600);
+      } catch (err) {
+        setStatus("error", "Error");
+        document.getElementById("start-btn").disabled = false;
+        document.getElementById("reset-btn").disabled = false;
+      }
+    };
+    window.handleReset = async function () {
+      clearInterval(pollInterval);
+      await fetch("/reset", { method: "POST" });
+      lastCount = 0;
+      document.getElementById("stat-ticks").innerHTML = '0 <span class="of">/ 5</span>';
+      document.getElementById("stat-time").innerHTML = "—";
+      document.getElementById("stat-size").textContent = "0 bytes";
+      document.getElementById("stat-uuid").innerHTML = "—";
+      document.getElementById("log-feed").innerHTML = "";
+      document.getElementById("empty-state").style.display = "flex";
+      document.getElementById("start-btn").disabled = false;
+      document.getElementById("reset-btn").disabled = false;
+      setStatus("idle", "Idle");
+    };
+    async function pollLogs() {
+      try {
+        const res = await fetch("/logs");
+        const data = await res.json();
+        const lines = data.lines || [];
+        if (lines.length !== lastCount) {
+          lastCount = lines.length;
+          document.getElementById("stat-ticks").innerHTML = lines.length + ' <span class="of">/ 5</span>';
+          document.getElementById("stat-size").textContent = data.fileSize + " bytes";
+          if (lines.length > 0) {
+            const lastLine = lines[lines.length - 1];
+            const uuidMatch = lastLine.match(/\[([^\]]+)\]/);
+            const timeMatch = lastLine.match(/\]\s+([^\s]+)\s+/);
+            if (uuidMatch) document.getElementById("stat-uuid").textContent = uuidMatch[1];
+            if (timeMatch) document.getElementById("stat-time").textContent = timeMatch[1].replace("T", " ").replace("Z", " UTC");
+          }
+          const feed = document.getElementById("log-feed");
+          feed.innerHTML = lines.map(function (line, i) {
+            const uuidMatch = line.match(/\[([^\]]+)\]/);
+            const timeMatch = line.match(/\]\s+([^\s]+)\s+/);
+            const msgMatch = line.match(/\u2014\s+(.*)/);
+            const uuid = uuidMatch ? uuidMatch[1] : "—";
+            const time = timeMatch ? timeMatch[1].replace("T", " ").replace("Z", " UTC") : "—";
+            const msg = msgMatch ? msgMatch[1] : line;
+            return '<div class="log-row"><span class="log-num">#' + (i + 1) + '</span><div class="log-details">'
+              + '<span class="log-msg">' + msg + '</span><span class="log-meta">' + time + '</span>'
+              + '<span class="log-uuid">' + uuid + '</span></div></div>';
+          }).join("");
+          feed.scrollTop = feed.scrollHeight;
+        }
+        if (!data.isLogging && lines.length >= 5) {
+          clearInterval(pollInterval);
+          setStatus("done", "Done");
+          document.getElementById("start-btn").disabled = false;
+          document.getElementById("reset-btn").disabled = false;
+        }
+        if (!data.isLogging && lines.length === 0) {
+          clearInterval(pollInterval);
+          setStatus("error", "Error");
+          document.getElementById("start-btn").disabled = false;
+          document.getElementById("reset-btn").disabled = false;
+        }
+      } catch (err) { clearInterval(pollInterval); }
+    }
+  </script>
+</body>
+</html>

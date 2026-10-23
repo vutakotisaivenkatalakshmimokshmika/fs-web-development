@@ -1,0 +1,8 @@
+{
+  "name": "my-app",
+  "version": "1.0.0",
+  "description": "Node.js Events, Timers, Packages and File I/O",
+  "main": "server.js",
+  "scripts": { "start": "node server.js" },
+  "dependencies": { "uuid": "^9.0.0" }
+}

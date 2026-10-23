@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #F7F4EC;
+  color: #1B2340;
+}
+
+.record-divider {
+  background-image: repeating-linear-gradient(to right, #C9C2AE 0, #C9C2AE 4px, transparent 4px, transparent 9px);
+  height: 1px;
+}
+
+.seal {
+  border: 2px dashed #B8862E;
+  border-radius: 9999px;
+  color: #8A6216;
+  transform: rotate(-8deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Types of CSS</title>
+
+<!-- Internal CSS -->
+<style>
+body {
+  font-family: "Times New Roman", serif;
+}
+.internal-box {
+  border: 2px dashed black;
+  padding: 10px;
+  width: 300px;
+}
+</style>
+
+<!-- External CSS -->
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1 align="center">Types of CSS</h1>
+<hr>
+
+<h2>1. Inline CSS</h2>
+<p style="font-weight:bold; text-decoration:underline;">
+This line is styled using Inline CSS (style attribute on the tag itself).
+</p>
+
+<h2>2. Internal CSS</h2>
+<div class="internal-box">
+This box is styled using Internal CSS (style written inside the &lt;style&gt; tag in the head).
+</div>
+
+<h2>3. External CSS</h2>
+<div class="external-box">
+This box is styled using External CSS (style written in a separate style.css file).
+</div>
+
+</body>
+</html>
