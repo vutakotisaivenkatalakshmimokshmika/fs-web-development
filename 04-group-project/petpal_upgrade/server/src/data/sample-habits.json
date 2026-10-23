@@ -1,0 +1,6 @@
+[
+  { "title": "Study for 1 hour", "description": "Focus on coursework for one hour.", "category": "Study", "targetMinutes": 60 },
+  { "title": "Drink water", "description": "Remember to drink water throughout the day.", "category": "Health", "targetMinutes": 0 },
+  { "title": "Sleep on time", "description": "Get ready for a consistent bedtime.", "category": "Health", "targetMinutes": 0 },
+  { "title": "Take a short break", "description": "Step away from the screen and stretch.", "category": "Self-care", "targetMinutes": 10 }
+]
